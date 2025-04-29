@@ -69,3 +69,26 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
+
+// コンボ用の定義を追加
+enum combo_events {
+  COMBO_ESC, // ← コンボの名前（好きに決めてOK）
+  COMBO_LENGTH
+};
+
+const uint16_t PROGMEM esc_combo[] = {KC_A, KC_S, COMBO_END}; // ← A + S同時押しで
+
+combo_t key_combos[] = {
+  [COMBO_ESC] = COMBO_ACTION(esc_combo),
+};
+
+// コンボが発動したときの動作を書く
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case COMBO_ESC:
+      if (pressed) {
+        tap_code(KC_ESC); // ← 押されたらESCを送信
+      }
+      break;
+  }
+}
