@@ -69,25 +69,47 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
-
 // コンボ用の定義を追加
 enum combo_events {
-  COMBO_ESC, // ← コンボの名前（好きに決めてOK）
-  COMBO_LENGTH
+  COMBO_E_W_ESC,   // E + W で ESC
+  COMBO_DOT_COMMA_SCROLL, // , + . で スクロール
+  COMBO_I_O_MINUS, // i + o で -
+  COMBO_K_L_ENTER, // k + l で Enter
 };
 
-const uint16_t PROGMEM esc_combo[] = {KC_A, KC_S, COMBO_END}; // ← A + S同時押しで
+const uint16_t PROGMEM e_w_esc_combo[] = {KC_E, KC_W, COMBO_END};
+const uint16_t PROGMEM dot_comma_scroll_combo[] = {KC_COMM, KC_DOT, COMBO_END}; 
+const uint16_t PROGMEM i_o_minus_combo[] = {KC_I, KC_O, COMBO_END}; 
+const uint16_t PROGMEM k_l_enter_combo[] = {KC_K, KC_L, COMBO_END}; 
 
 combo_t key_combos[] = {
-  [COMBO_ESC] = COMBO_ACTION(esc_combo),
+  [COMBO_E_W_ESC] = COMBO_ACTION(e_w_esc_combo),
+  [COMBO_DOT_COMMA_SCROLL] = COMBO_ACTION(dot_comma_scroll_combo),
+  [COMBO_I_O_MINUS] = COMBO_ACTION(i_o_minus_combo), 
+  [COMBO_K_L_ENTER] = COMBO_ACTION(k_l_enter_combo), 
 };
 
 // コンボが発動したときの動作を書く
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
-    case COMBO_ESC:
+    case COMBO_E_W_ESC:
       if (pressed) {
         tap_code(KC_ESC); // ← 押されたらESCを送信
+      }
+      break;
+    case COMBO_DOT_COMMA_SCROLL:
+      if (pressed) {
+        tap_code16(0x7e07); // VIA User key K7 (0x7e07) を送信
+      }
+      break;
+    case COMBO_I_O_MINUS:
+      if (pressed) {
+        tap_code(KC_MINS); // i + o で - を送信
+      }
+      break;
+    case COMBO_K_L_ENTER:
+      if (pressed) {
+        tap_code(KC_ENT); // k + l で Enter を送信
       }
       break;
   }
