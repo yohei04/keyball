@@ -37,3 +37,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 1
+
+// 自動マウスレイヤーのタイムアウト設定（元のレイヤーに戻るまでの時間）
+// QMKのデフォルトは650ms、Keyballのデフォルトは300ms
+#define AUTO_MOUSE_TIME 10000
