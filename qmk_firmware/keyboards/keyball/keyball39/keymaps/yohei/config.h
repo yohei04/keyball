@@ -35,6 +35,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAP_CODE_DELAY 5
 
+// タップとホールドの判定時間を設定（デフォルトは200ms）
+// 値を小さくすることでホールド認識が速くなる
+#define TAPPING_TERM 120
+
+// キーごとに個別のTAPPING_TERMを設定
+#define TAPPING_TERM_PER_KEY
+
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 1
 
