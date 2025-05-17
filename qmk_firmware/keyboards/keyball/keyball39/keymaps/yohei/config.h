@@ -41,3 +41,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // 自動マウスレイヤーのタイムアウト設定（元のレイヤーに戻るまでの時間）
 // QMKのデフォルトは650ms、Keyballのデフォルトは300ms
 #define AUTO_MOUSE_TIME 10000
+
+// VIA用のレイヤー数を増やす設定
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
