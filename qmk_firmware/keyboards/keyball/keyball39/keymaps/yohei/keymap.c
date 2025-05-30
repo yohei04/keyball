@@ -86,25 +86,25 @@ void oledkit_render_info_user(void) {
 
 // コンボ用の定義を追加
 enum combo_events {
-  COMBO_E_W_ESC,         // E + W で ESC
-  COMBO_I_O_MINUS,       // i + o で -
-  COMBO_K_L_ENTER,       // k + l で Enter
+  // COMBO_E_W_ESC,         // E + W で ESC
+  // COMBO_I_O_MINUS,       // i + o で -
+  // COMBO_K_L_ENTER,       // k + l で Enter
   COMBO_BTN1_BTN2_SCROLL, // マウスボタン1と2でスクロール
   COMBO_LEFT_DOWN_CTRL_LEFT, // ←+↓ で Ctrl+←
   COMBO_RIGHT_DOWN_CTRL_RIGHT, // →+↓ で Ctrl+→
 };
 
-const uint16_t PROGMEM e_w_esc_combo[] = {KC_E, KC_W, COMBO_END};
-const uint16_t PROGMEM i_o_minus_combo[] = {KC_I, KC_O, COMBO_END}; 
-const uint16_t PROGMEM k_l_enter_combo[] = {KC_K, KC_L, COMBO_END}; 
+// const uint16_t PROGMEM e_w_esc_combo[] = {KC_E, KC_W, COMBO_END};
+// const uint16_t PROGMEM i_o_minus_combo[] = {KC_I, KC_O, COMBO_END}; 
+// const uint16_t PROGMEM k_l_enter_combo[] = {KC_K, KC_L, COMBO_END}; 
 const uint16_t PROGMEM btn1_btn2_scroll_combo[] = {KC_BTN1, KC_BTN2, COMBO_END};
 const uint16_t PROGMEM left_down_ctrl_left_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
 const uint16_t PROGMEM right_down_ctrl_right_combo[] = {KC_RIGHT, KC_DOWN, COMBO_END};
 
 combo_t key_combos[] = {
-  [COMBO_E_W_ESC] = COMBO(e_w_esc_combo, KC_ESC),
-  [COMBO_I_O_MINUS] = COMBO(i_o_minus_combo, KC_MINS),
-  [COMBO_K_L_ENTER] = COMBO(k_l_enter_combo, KC_ENT), 
+  // [COMBO_E_W_ESC] = COMBO(e_w_esc_combo, KC_ESC),
+  // [COMBO_I_O_MINUS] = COMBO(i_o_minus_combo, KC_MINS),
+  // [COMBO_K_L_ENTER] = COMBO(k_l_enter_combo, KC_ENT), 
   [COMBO_BTN1_BTN2_SCROLL] = COMBO_ACTION(btn1_btn2_scroll_combo),
   [COMBO_LEFT_DOWN_CTRL_LEFT] = COMBO(left_down_ctrl_left_combo, LCTL(KC_LEFT)),
   [COMBO_RIGHT_DOWN_CTRL_RIGHT] = COMBO(right_down_ctrl_right_combo, LCTL(KC_RIGHT)),
