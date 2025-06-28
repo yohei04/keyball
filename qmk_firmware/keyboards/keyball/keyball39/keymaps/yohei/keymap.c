@@ -143,6 +143,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 200;  // 200msのtapping term
         case LSFT_T(KC_Z):  // 'z' キー (タップでz、ホールドでShift)
             return 200;  // 200msのtapping term
+        case LT(2,KC_SPC): // スペースキー (タップでSpace、ホールドでレイヤー2)
+            return 200;  // 200msのtapping term
         default:
             return TAPPING_TERM;  // その他のキーはデフォルト値
     }
